@@ -1,8 +1,7 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X, Download, ExternalLink } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
 const Navbar = () => {
@@ -25,50 +24,40 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
-    { name: "About Me", href: "#about", delay: 0.1 },
-    { name: "My Projects", href: "#projects", delay: 0.2 },
-    { name: "Skill Set", href: "#skills", delay: 0.3 },
-    { name: "Get in Touch", href: "#contact", delay: 0.4 },
+    { name: "about", href: "#about" },
+    { name: "projects", href: "#projects" },
+    { name: "skills", href: "#skills" },
+    { name: "contact", href: "#contact" },
   ];
 
   return (
     <nav className={cn(
-      "fixed top-0 left-0 w-full py-4 px-6 md:px-12 z-50 transition-all duration-300",
-      isScrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
+      "fixed top-0 left-0 w-full py-4 px-6 z-50 transition-all duration-300",
+      isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-transparent"
     )}>
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <a href="#" className="text-xl font-playfair tracking-tight font-bold">
-          <span className="text-foreground">design</span><span className="text-primary">GURU</span>
+      <div className="max-w-6xl mx-auto flex justify-between items-center">
+        <a href="#" className="text-xl font-medium tracking-tight">
+          <span className="text-foreground">dev</span><span className="text-primary">Mode</span>
         </a>
         
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-1 items-center">
+        <div className="hidden md:flex items-center space-x-10">
           {navItems.map((item) => (
             <a 
               key={item.name}
               href={item.href} 
-              className="relative px-4 py-2 text-foreground/70 hover:text-primary transition-colors duration-300 text-sm font-medium group"
+              className="text-foreground/70 hover:text-primary transition-colors duration-300 text-sm"
             >
               {item.name}
-              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </a>
           ))}
 
-          <Button 
-            variant="default" 
-            className="ml-4 font-medium shadow-md hover:shadow-lg transition-all"
-            size="sm"
+          <a 
+            href="#contact"
+            className="px-5 py-2 bg-primary text-white rounded-full text-sm hover:bg-primary/90 transition-colors"
           >
-            <Download className="mr-1 h-4 w-4" /> Get Resume
-          </Button>
-          
-          <Button 
-            variant="outline" 
-            className="ml-2 border-primary/20 text-primary hover:bg-primary/5 font-medium"
-            size="sm"
-          >
-            <ExternalLink className="mr-1 h-4 w-4" /> Hire Me
-          </Button>
+            let's talk
+          </a>
         </div>
         
         {/* Mobile Menu Button */}
@@ -80,7 +69,7 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div 
         className={cn(
-          "fixed top-[60px] left-0 w-full bg-white/95 backdrop-blur-md shadow-md md:hidden transition-transform duration-300 ease-in-out border-t border-border",
+          "fixed top-[60px] left-0 w-full bg-white/95 backdrop-blur-md shadow-sm md:hidden transition-transform duration-300 ease-in-out border-t border-border",
           isOpen ? "translate-y-0" : "-translate-y-full"
         )}
       >
@@ -89,20 +78,19 @@ const Navbar = () => {
             <a 
               key={item.name}
               href={item.href} 
-              className="text-foreground hover:text-primary w-full text-center py-2 transition-colors duration-300 font-medium"
+              className="text-foreground hover:text-primary w-full text-center py-2 transition-colors duration-300"
               onClick={toggleMenu}
             >
               {item.name}
             </a>
           ))}
-          <div className="pt-2 flex flex-col gap-3 w-full px-6">
-            <Button className="w-full shadow-md">
-              <Download className="mr-1 h-4 w-4" /> Get Resume
-            </Button>
-            <Button variant="outline" className="w-full border-primary/20 text-primary hover:bg-primary/5">
-              <ExternalLink className="mr-1 h-4 w-4" /> Hire Me
-            </Button>
-          </div>
+          <a 
+            href="#contact"
+            className="w-2/3 text-center px-5 py-2 bg-primary text-white rounded-full text-sm hover:bg-primary/90 transition-colors"
+            onClick={toggleMenu}
+          >
+            let's talk
+          </a>
         </div>
       </div>
     </nav>

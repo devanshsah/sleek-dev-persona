@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 12 76% 61%;
+    --primary: 212 100% 47%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 240 4.8% 95.9%;
@@ -25,7 +25,7 @@
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
 
-    --accent: 12 76% 61%;
+    --accent: 212 100% 47%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -33,7 +33,7 @@
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 12 76% 61%;
+    --ring: 212 100% 47%;
 
     --radius: 0.5rem;
   }
@@ -54,16 +54,12 @@
   section {
     @apply scroll-mt-16;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
-  }
 }
 
 /* Animation classes */
 .section-fade {
   @apply opacity-0;
-  animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeIn 0.6s ease-out forwards;
   animation-timeline: view();
   animation-range: entry 10% cover 25%;
 }
@@ -94,34 +90,18 @@
   animation: slideUp 0.8s ease-out forwards;
 }
 
-/* Text gradient animation */
+/* Text styling */
 .text-gradient {
   @apply bg-gradient-to-r from-primary via-primary to-primary/80 bg-clip-text text-transparent;
 }
 
+/* Card hover effect */
 .card-hover {
-  @apply transition-all duration-500;
+  @apply transition-all duration-300;
   box-shadow: 0 0 0 rgba(var(--primary), 0.1);
 }
 
 .card-hover:hover {
-  @apply -translate-y-2;
-  box-shadow: 0 15px 30px rgba(var(--primary), 0.1);
-}
-
-/* Line animation for section titles */
-.section-title::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 2px;
-  background: hsl(var(--primary));
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.6s ease;
-  margin: 0.7rem auto 0 auto;
-}
-
-.section-title:hover::after {
-  transform: scaleX(1);
+  @apply -translate-y-1;
+  box-shadow: 0 10px 20px rgba(var(--primary), 0.1);
 }

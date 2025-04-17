@@ -1,124 +1,95 @@
 
-import { FiGithub, FiExternalLink, FiArrowRight } from "react-icons/fi";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "Design System Framework",
-    description: "A comprehensive design system with components, patterns, and documentation for enterprise applications.",
-    tags: ["Figma", "React", "Storybook", "Styled Components"],
+    title: "Design System",
+    description: "Component library with documentation for enterprise apps",
+    tags: ["React", "Storybook"],
     imageUrl: "/placeholder.svg",
-    githubUrl: "#",
-    liveUrl: "#",
-    featured: true
+    link: "#"
   },
   {
     title: "Analytics Dashboard",
-    description: "An interactive data visualization dashboard with real-time filtering, dark mode, and responsive design.",
-    tags: ["TypeScript", "D3.js", "React Query", "Tailwind CSS"],
+    description: "Data visualization with real-time filtering and dark mode",
+    tags: ["TypeScript", "D3.js"],
     imageUrl: "/placeholder.svg",
-    githubUrl: "#",
-    liveUrl: "#",
-    featured: true
+    link: "#"
   },
   {
     title: "E-Commerce Platform",
-    description: "A scalable e-commerce solution with an intuitive shopping experience and streamlined checkout flow.",
-    tags: ["Next.js", "GraphQL", "Stripe", "PostgreSQL"],
+    description: "Online store with smooth shopping experience",
+    tags: ["Next.js", "Stripe"],
     imageUrl: "/placeholder.svg",
-    githubUrl: "#",
-    liveUrl: "#",
-    featured: false
+    link: "#"
   },
 ];
 
 const Projects = () => {
-  const featuredProjects = projects.filter(project => project.featured);
-  
   return (
-    <section id="projects" className="py-24 px-6 bg-secondary section-fade">
+    <section id="projects" className="py-20 px-6 bg-secondary/30 section-fade">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-6 text-center font-playfair section-title">
-          Featured <span className="text-primary">Projects</span>
-        </h2>
-        <p className="text-gray-400 text-center max-w-3xl mx-auto mb-16 text-lg">
-          A selection of my most impactful work, showcasing my expertise in UI/UX design 
-          and full-stack development.
-        </p>
+        <div className="mb-12">
+          <span className="text-sm text-primary font-medium">projects</span>
+          <h2 className="text-3xl font-bold">
+            Some things I've built
+          </h2>
+        </div>
         
-        <div className="space-y-24">
-          {featuredProjects.map((project, index) => (
-            <div 
-              key={index} 
-              className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center`}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="lg:w-3/5 relative">
-                <div className="aspect-video bg-muted rounded-lg overflow-hidden group relative">
-                  <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/20 transition-all duration-300"></div>
+              <a 
+                href={project.link}
+                className="block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group"
+              >
+                <div className="aspect-video bg-muted/70 overflow-hidden">
                   <img 
                     src={project.imageUrl} 
-                    alt={project.title} 
-                    className="w-full h-full object-cover object-center rounded-lg"
+                    alt={project.title}
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="flex gap-4">
-                      <a 
-                        href={project.githubUrl} 
-                        className="p-3 bg-black/80 rounded-full text-white hover:bg-primary transition"
+                </div>
+                
+                <div className="p-6">
+                  <h3 className="text-lg font-medium mb-2 flex items-center justify-between">
+                    {project.title}
+                    <ArrowUpRight size={16} className="text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </h3>
+                  
+                  <p className="text-sm text-foreground/70 mb-4">{project.description}</p>
+                  
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, tagIndex) => (
+                      <span 
+                        key={tagIndex} 
+                        className="bg-secondary text-foreground/70 text-xs px-2 py-1 rounded-full"
                       >
-                        <FiGithub size={20} />
-                      </a>
-                      <a 
-                        href={project.liveUrl} 
-                        className="p-3 bg-black/80 rounded-full text-white hover:bg-primary transition"
-                      >
-                        <FiExternalLink size={20} />
-                      </a>
-                    </div>
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
-                <div className={`absolute -z-10 ${index % 2 === 0 ? '-right-5' : '-left-5'} -bottom-5 w-full h-full border-2 border-primary/30 rounded-lg`}></div>
-              </div>
-              
-              <div className="lg:w-2/5 space-y-4">
-                <h3 className="text-2xl font-bold font-playfair text-white">{project.title}</h3>
-                
-                <Card className="bg-background border-border">
-                  <CardContent className="p-6">
-                    <p className="text-gray-400 mb-6">{project.description}</p>
-                    
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tags.map((tag, tagIndex) => (
-                        <span 
-                          key={tagIndex} 
-                          className="bg-primary/10 text-primary text-xs px-3 py-1 rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    <div className="flex space-x-4">
-                      <a 
-                        href={project.liveUrl} 
-                        className="text-primary hover:text-white flex items-center gap-2 text-sm transition-colors duration-300"
-                      >
-                        <span>View Project</span>
-                        <FiArrowRight size={16} />
-                      </a>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
+              </a>
+            </motion.div>
           ))}
         </div>
         
-        <div className="mt-20 text-center">
-          <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
-            View All Projects <FiArrowRight className="ml-2" size={16} />
-          </Button>
+        <div className="mt-12 text-center">
+          <a 
+            href="#" 
+            className="inline-flex items-center text-primary hover:underline"
+          >
+            see all projects
+            <ArrowUpRight size={16} className="ml-1" />
+          </a>
         </div>
       </div>
     </section>

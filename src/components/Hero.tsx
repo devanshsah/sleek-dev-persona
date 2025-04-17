@@ -1,6 +1,6 @@
 
-import { ArrowDown, Download, Send } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowDown } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -11,42 +11,44 @@ const Hero = () => {
   };
   
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center pt-16 px-6 relative bg-background">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(var(--primary),0.05)_0,rgba(var(--primary),0)_70%)]"></div>
-      </div>
-      
-      <div className="max-w-4xl mx-auto text-center space-y-8 z-10 animate-slide-up">
-        <span className="inline-block py-1 px-3 bg-primary/10 text-primary rounded-full text-sm font-medium mb-2">Full-Stack Development</span>
-        
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight font-playfair">
-          <span className="text-gradient">UI/UX Designer</span>
-          <span className="block mt-3 text-4xl md:text-5xl text-foreground">
-            & Software Developer
+    <section className="min-h-[90vh] flex flex-col justify-center items-center pt-16 px-6 relative bg-background">
+      <div className="max-w-3xl mx-auto text-center z-10 animate-slide-up">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-8"
+        >
+          <span className="inline-block py-1 px-3 bg-primary/10 text-primary rounded-full text-sm mb-6">
+            developer & designer
           </span>
-        </h1>
+          
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+            I build things for the <span className="text-gradient">web</span>
+          </h1>
+          
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed">
+            Frontend developer creating clean, user-focused experiences with modern tech
+          </p>
+        </motion.div>
         
-        <p className="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
-          I turn your wildest ideas into beautiful, responsive websites that users <span className="text-primary font-medium">actually love</span> to use.
-        </p>
-        
-        <div className="flex flex-col sm:flex-row justify-center gap-4 pt-8">
-          <Button 
-            onClick={() => scrollToSection('projects')}
-            className="bg-primary text-white hover:bg-primary/90 px-8 py-6 shadow-lg hover:shadow-xl transition-all"
-            size="lg"
+        <motion.div 
+          initial={{ opacity: 0 }} 
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="pt-8"
+        >
+          <a 
+            href="#projects"
+            className="px-8 py-3 bg-primary text-white rounded-full inline-block hover:bg-primary/90 transition-all shadow-lg hover:shadow-primary/20"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('projects');
+            }}
           >
-            <Send className="mr-2 h-5 w-5" /> View Projects
-          </Button>
-          <Button 
-            onClick={() => scrollToSection('contact')}
-            variant="outline"
-            className="border-primary/20 text-primary hover:bg-primary/5 px-8 py-6"
-            size="lg"
-          >
-            <Download className="mr-2 h-5 w-5" /> Download Resume
-          </Button>
-        </div>
+            see my work
+          </a>
+        </motion.div>
       </div>
       
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">

@@ -1,8 +1,7 @@
 
 import { useState } from "react";
-import { FiMail, FiMapPin, FiLinkedin, FiGithub, FiTwitter, FiSend } from "react-icons/fi";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { Send } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -18,146 +17,96 @@ const Contact = () => {
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
     console.log("Form submitted:", formData);
-    // Reset form after submission
     setFormData({ name: "", email: "", message: "" });
-    // Show success message
-    alert("Thanks for your message! I'll get back to you soon.");
+    alert("Message sent! I'll get back to you soon.");
   };
 
   return (
-    <section id="contact" className="py-24 px-6 bg-secondary section-fade">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-6 text-center font-playfair section-title">
-          Get in <span className="text-primary">Touch</span>
-        </h2>
-        <p className="text-gray-400 text-center max-w-3xl mx-auto mb-16 text-lg">
-          Have a project in mind or want to explore collaboration opportunities? Let's connect and create something amazing together.
-        </p>
+    <section id="contact" className="py-20 px-6 bg-secondary/30 section-fade">
+      <div className="max-w-3xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <span className="text-sm text-primary font-medium">contact</span>
+          <h2 className="text-3xl font-bold mb-4">
+            Let's work together
+          </h2>
+          <p className="text-foreground/70">
+            Have a project in mind? Send me a message and let's create something amazing.
+          </p>
+        </motion.div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <Card className="bg-background border-border shadow-lg overflow-hidden">
-            <CardContent className="p-8">
-              <h3 className="text-xl font-semibold mb-6 text-white font-playfair">Send Me a Message</h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-gray-300 mb-2 text-sm">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-secondary border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="email" className="block text-gray-300 mb-2 text-sm">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-secondary border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="message" className="block text-gray-300 mb-2 text-sm">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={5}
-                    className="w-full px-4 py-3 bg-secondary border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white resize-none"
-                  />
-                </div>
-                
-                <Button
-                  type="submit"
-                  className="bg-primary text-white hover:bg-primary/90 w-full flex items-center justify-center gap-2"
-                >
-                  <span>Send Message</span>
-                  <FiSend size={16} />
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-          
-          <div className="flex flex-col justify-between">
-            <div className="space-y-8">
-              <div className="flex items-start space-x-4">
-                <div className="p-3 bg-primary/10 rounded-md text-primary mt-1">
-                  <FiMail size={20} />
-                </div>
-                <div>
-                  <h3 className="font-medium text-lg text-white font-playfair">Email</h3>
-                  <p className="text-gray-400">hello@example.com</p>
-                </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <form onSubmit={handleSubmit} className="bg-white rounded-lg p-8 shadow-sm">
+            <div className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-foreground/70 mb-2">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 bg-secondary/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-colors"
+                  placeholder="Your name"
+                />
               </div>
               
-              <div className="flex items-start space-x-4">
-                <div className="p-3 bg-primary/10 rounded-md text-primary mt-1">
-                  <FiMapPin size={20} />
-                </div>
-                <div>
-                  <h3 className="font-medium text-lg text-white font-playfair">Location</h3>
-                  <p className="text-gray-400">San Francisco, CA</p>
-                </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-foreground/70 mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 bg-secondary/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-colors"
+                  placeholder="your@email.com"
+                />
               </div>
               
-              <div className="space-y-4">
-                <h3 className="font-medium text-lg text-white font-playfair">Connect</h3>
-                <div className="flex space-x-4">
-                  <a 
-                    href="#" 
-                    className="p-3 bg-background rounded-full text-gray-400 hover:bg-primary hover:text-white transition-colors"
-                    aria-label="GitHub"
-                  >
-                    <FiGithub size={20} />
-                  </a>
-                  <a 
-                    href="#" 
-                    className="p-3 bg-background rounded-full text-gray-400 hover:bg-primary hover:text-white transition-colors"
-                    aria-label="LinkedIn"
-                  >
-                    <FiLinkedin size={20} />
-                  </a>
-                  <a 
-                    href="#" 
-                    className="p-3 bg-background rounded-full text-gray-400 hover:bg-primary hover:text-white transition-colors"
-                    aria-label="Twitter"
-                  >
-                    <FiTwitter size={20} />
-                  </a>
-                </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-foreground/70 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={4}
+                  className="w-full px-4 py-3 bg-secondary/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-colors resize-none"
+                  placeholder="Tell me about your project..."
+                />
               </div>
+              
+              <button
+                type="submit"
+                className="w-full px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center"
+              >
+                <span>send message</span>
+                <Send size={16} className="ml-2" />
+              </button>
             </div>
-            
-            <Card className="mt-8 lg:mt-0 bg-primary/5 border border-primary/20">
-              <CardContent className="p-6">
-                <h3 className="font-medium text-lg mb-3 text-white font-playfair">Let's Collaborate</h3>
-                <p className="text-gray-300">
-                  Currently available for UI/UX design projects, frontend development, and full-stack collaborations.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
+          </form>
+        </motion.div>
       </div>
     </section>
   );
