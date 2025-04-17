@@ -1,73 +1,75 @@
-# Welcome to your Lovable project
 
-## Project info
+# sleek-dev-persona
 
-**URL**: https://lovable.dev/projects/6ee26dde-302d-417a-ba82-29a1842794d0
+A sleek, modern developer portfolio website built with React, TypeScript, and Tailwind CSS.
 
-## How can I edit this code?
+## Project Overview
 
-There are several ways of editing your application.
+This is a responsive, modern developer portfolio website showcasing skills, projects, and contact information. The site features a clean design with smooth animations and a mobile-friendly interface.
 
-**Use Lovable**
+## Technologies Used
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6ee26dde-302d-417a-ba82-29a1842794d0) and start prompting.
+- React
+- TypeScript
+- Tailwind CSS
+- Vite
+- Framer Motion
+- shadcn/ui components
 
-Changes made via Lovable will be committed automatically to this repo.
+## Development
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+To run this project locally:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Clone the repository
+git clone https://github.com/devanshsah/sleek-dev-persona.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd sleek-dev-persona
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## Deployment with GitHub Pages
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+To deploy this site using GitHub Pages:
 
-**Use GitHub Codespaces**
+1. In your GitHub repository, go to Settings > Pages
+2. Set the source to your main branch
+3. Configure your custom domain if you have one
+4. Save your settings
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Custom Domain Configuration (GoDaddy)
 
-## What technologies are used for this project?
+To point your GoDaddy domain to GitHub Pages:
 
-This project is built with:
+1. Add the following A records pointing to GitHub Pages IP addresses:
+   - 185.199.108.153
+   - 185.199.109.153
+   - 185.199.110.153
+   - 185.199.111.153
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+2. Add a CNAME record:
+   - Type: CNAME
+   - Name: www
+   - Value: devanshsah.github.io
 
-## How can I deploy this project?
+3. In your GitHub repository settings, add your custom domain in the Pages section
 
-Simply open [Lovable](https://lovable.dev/projects/6ee26dde-302d-417a-ba82-29a1842794d0) and click on Share -> Publish.
+## Building for Production
 
-## Can I connect a custom domain to my Lovable project?
+```sh
+# Generate a production build
+npm run build
 
-Yes, you can!
+# Preview the production build locally
+npm run preview
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## License
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+MIT
