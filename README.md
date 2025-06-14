@@ -1,5 +1,5 @@
 
-# sleek-dev-persona
+# design dost
 
 A sleek, modern developer portfolio website built with React, TypeScript, and Tailwind CSS.
 

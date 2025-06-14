@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -37,7 +36,7 @@ const Navbar = () => {
     )}>
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         <a href="#" className="text-xl font-medium tracking-tight">
-          <span className="text-foreground">dev</span><span className="text-primary">Mode</span>
+          <span className="text-foreground">design</span><span className="text-primary">dost</span>
         </a>
         
         {/* Desktop Navigation */}
