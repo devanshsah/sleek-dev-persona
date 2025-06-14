@@ -13,7 +13,7 @@ const About = () => {
           className="max-w-3xl mx-auto"
         >
           <span className="text-sm text-primary font-medium">about</span>
-          <h2 className="text-3xl font-bold mb-8">
+          <h2 className="text-3xl font-bold mb-8 font-playfair">
             Hey there! I'm a digital creator.
           </h2>
           

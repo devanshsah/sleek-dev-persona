@@ -22,7 +22,7 @@ const Skills = () => {
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
           <span className="text-sm text-primary font-medium">skills</span>
-          <h2 className="text-3xl font-bold">
+          <h2 className="text-3xl font-bold font-playfair">
             My toolbox
           </h2>
         </div>
@@ -35,7 +35,7 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white border border-border rounded-lg p-6 shadow-sm"
+              className="bg-card border border-border rounded-lg p-6 shadow-sm"
             >
               <h3 className="text-lg font-medium mb-4 pb-4 border-b border-border">
                 {skillGroup.category}

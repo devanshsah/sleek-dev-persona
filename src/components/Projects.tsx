@@ -7,32 +7,32 @@ const projects = [
     title: "Design System",
     description: "Component library with documentation for enterprise apps",
     tags: ["React", "Storybook"],
-    imageUrl: "/placeholder.svg",
+    imageUrl: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
     link: "#"
   },
   {
     title: "Analytics Dashboard",
     description: "Data visualization with real-time filtering and dark mode",
     tags: ["TypeScript", "D3.js"],
-    imageUrl: "/placeholder.svg",
+    imageUrl: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6",
     link: "#"
   },
   {
     title: "E-Commerce Platform",
     description: "Online store with smooth shopping experience",
     tags: ["Next.js", "Stripe"],
-    imageUrl: "/placeholder.svg",
+    imageUrl: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
     link: "#"
   },
 ];
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 px-6 bg-secondary/30 section-fade">
+    <section id="projects" className="py-20 px-6 bg-secondary section-fade">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12">
           <span className="text-sm text-primary font-medium">projects</span>
-          <h2 className="text-3xl font-bold">
+          <h2 className="text-3xl font-bold font-playfair">
             Some things I've built
           </h2>
         </div>
@@ -48,7 +48,7 @@ const Projects = () => {
             >
               <a 
                 href={project.link}
-                className="block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all group"
+                className="block bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-lg hover:shadow-primary/10 transition-all group"
               >
                 <div className="aspect-video bg-muted/70 overflow-hidden">
                   <img 

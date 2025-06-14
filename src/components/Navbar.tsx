@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -32,11 +33,11 @@ const Navbar = () => {
   return (
     <nav className={cn(
       "fixed top-0 left-0 w-full py-4 px-6 z-50 transition-all duration-300",
-      isScrolled ? "bg-white/95 backdrop-blur-md shadow-sm" : "bg-transparent"
+      isScrolled ? "bg-background/90 backdrop-blur-md border-b border-border" : "bg-transparent"
     )}>
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         <a href="#" className="text-xl font-medium tracking-tight">
-          <span className="text-foreground">design</span><span className="text-primary">dost</span>
+          <span className="font-playfair font-bold text-2xl text-foreground">design</span><span className="text-primary">dost</span>
         </a>
         
         {/* Desktop Navigation */}
@@ -53,7 +54,7 @@ const Navbar = () => {
 
           <a 
             href="#contact"
-            className="px-5 py-2 bg-primary text-white rounded-full text-sm hover:bg-primary/90 transition-colors"
+            className="px-5 py-2 bg-primary text-primary-foreground rounded-full text-sm hover:bg-primary/90 transition-colors"
           >
             let's talk
           </a>
@@ -68,8 +69,8 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div 
         className={cn(
-          "fixed top-[60px] left-0 w-full bg-white/95 backdrop-blur-md shadow-sm md:hidden transition-transform duration-300 ease-in-out border-t border-border",
-          isOpen ? "translate-y-0" : "-translate-y-full"
+          "fixed top-[60px] left-0 w-full bg-background/95 backdrop-blur-md shadow-sm md:hidden transition-transform duration-300 ease-in-out border-t border-border",
+          isOpen ? "translate-y-0" : "-translate-y-[150%]"
         )}
       >
         <div className="flex flex-col items-center py-6 space-y-4">
@@ -85,7 +86,7 @@ const Navbar = () => {
           ))}
           <a 
             href="#contact"
-            className="w-2/3 text-center px-5 py-2 bg-primary text-white rounded-full text-sm hover:bg-primary/90 transition-colors"
+            className="w-2/3 text-center px-5 py-2 bg-primary text-primary-foreground rounded-full text-sm hover:bg-primary/90 transition-colors"
             onClick={toggleMenu}
           >
             let's talk

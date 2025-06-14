@@ -23,7 +23,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 px-6 bg-secondary/30 section-fade">
+    <section id="contact" className="py-20 px-6 bg-secondary section-fade">
       <div className="max-w-3xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -33,7 +33,7 @@ const Contact = () => {
           className="text-center mb-12"
         >
           <span className="text-sm text-primary font-medium">contact</span>
-          <h2 className="text-3xl font-bold mb-4">
+          <h2 className="text-3xl font-bold mb-4 font-playfair">
             Let's work together
           </h2>
           <p className="text-foreground/70">
@@ -47,7 +47,7 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <form onSubmit={handleSubmit} className="bg-white rounded-lg p-8 shadow-sm">
+          <form onSubmit={handleSubmit} className="bg-card rounded-lg p-8 shadow-sm">
             <div className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-foreground/70 mb-2">
@@ -60,7 +60,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-secondary/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-colors"
+                  className="w-full px-4 py-3 bg-secondary/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:bg-background transition-colors"
                   placeholder="Your name"
                 />
               </div>
@@ -76,7 +76,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-secondary/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-colors"
+                  className="w-full px-4 py-3 bg-secondary/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:bg-background transition-colors"
                   placeholder="your@email.com"
                 />
               </div>
@@ -92,14 +92,14 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={4}
-                  className="w-full px-4 py-3 bg-secondary/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-secondary/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:bg-background transition-colors resize-none"
                   placeholder="Tell me about your project..."
                 />
               </div>
               
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center"
+                className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center"
               >
                 <span>send message</span>
                 <Send size={16} className="ml-2" />
